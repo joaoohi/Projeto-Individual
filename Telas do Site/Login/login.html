@@ -5,15 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="login.css">
+    
 </head>
 <body>
     
     <div class="container" >
 
-        <h1>Login</h1>
-
+        <h1 class="login" >Login</h1>
+        <input class="input_usuario" type="text" placeholder="Digite seu Usuário"><br><br><br><br>
+        <input class="input_senha" type="password" placeholder="Digite sua Senha">
+        <button onclick="entrar()" >Entrar</button>
+        <button onclick="conta()" >Criar Conta</button>
 
     </div>
 
+    
+
 </body>
 </html>
+<script>
+
+    function entrar(){
+        window.location.href = 'home.html';
+    }
+
+</script>
