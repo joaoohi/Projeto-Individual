@@ -5,30 +5,197 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="cadastrar.css">
+    <style>
+        #container2 {
+            display: none;
+        }
+
+    </style>
 </head>
 <body>
     <div class="container" >
         <h1>Cadastrar</h1>
-        <input class="input_nome" type="text" placeholder="Nome">
-        <input class="input_sobrenome" type="text" placeholder="Sobrenome"><br>
-        <input class="input_ddd" type="number" placeholder="DDD">
-        <input class="input_celular" type="number"placeholder="Celular">
-        <input class="input_email" type="text" placeholder="Email"><br>
-        <input class="input_senha" type="password" placeholder="Senha"><br>
-        <input class="input_confirmar" type="password" placeholder="Confirme sua Senha">
+        <input id="input_nome" class="input_nome" type="text" placeholder="Nome">
+        <input id="input_sobrenome" class="input_sobrenome" type="text" placeholder="Sobrenome"><br>
+        <input id="input_ddd" class="input_ddd" type="number" placeholder="DDD">
+        <input id="input_celular" class="input_celular" type="text"placeholder="Celular">
+        <input id="input_email" class="input_email" type="text" placeholder="Email"><br>
+        <input id="input_senha" class="input_senha" type="password" placeholder="Senha"><br>
+        <input id="input_confirmar" class="input_confirmar" type="password" placeholder="Confirme sua Senha">
         <select class="instrumento" name="Instrumento" id="">
             <option value="">Escolha seu Instrumento</option>
             <option value="">Guitarra</option>
             <option value="">Violão</option>
         </select><br>
-        <button onclick="cadastrar()" >Cadastrar</button>
+        <button onclick="cadastrar()" >Cadastrar</button><br>
     </div>
+    <div id="container2" class="container2">
+        <img src="../Login/assets/invalido.png" alt="">
+        <div class="mensagem_invalido" id="div_mensagem"></div>
+    </div>
+   
 </body>
 </html>
 <script>
 
     function cadastrar(){
-        window.location.href= "login.html"
+        
+        var mensagem = '';
+        var nome = input_nome.value;
+        var sobrenome = input_sobrenome.value;
+        var ddd = Number(input_ddd.value);
+        var celular = input_celular.value;
+        var email = input_email.value;
+        var senha = input_senha.value;
+        var confirmar_senha = input_confirmar.value;
+        var tamanho_nome = nome.length;
+        var tamanho_sobrenome = sobrenome.length;
+        var tamanho_celular = celular.length;
+        var tamanho_senha = senha.length;
+
+        // VALIDAÇÃO DO EMAIL
+        var email_com = email.endsWith('.com');
+        var email_br = email.endsWith('.br');
+        var email_school = email.endsWith('school');
+        var arroba = email.includes('@');
+
+        // VALIDAÇÃO DA SENHA
+        var senha_exclamacao = senha.includes('!');
+        var senha_arroba = senha.includes('@');
+        var senha_hashtag = senha.includes('#');
+        var senha_sifrao = senha.includes('$');
+        var senha_porcentagem = senha.includes('%');
+        var senha_comercial = senha.includes('&');
+        var senha_asterisco = senha.includes('*');
+        var senha_zero = senha.includes('0')
+        var senha_um = senha.includes('1')
+        var senha_dois = senha.includes('2')
+        var senha_tres = senha.includes('3')
+        var senha_quatro = senha.includes('4')
+        var senha_cinco = senha.includes('5')
+        var senha_seis = senha.includes('6')
+        var senha_sete = senha.includes('7')
+        var senha_oito = senha.includes('8')
+        var senha_nove = senha.includes('9')
+        
+        // CONTADORES DE CARACTERES NÃO PERMITIDOS
+        var contador_arroba = 0;
+        var contador_pontovirgula = 0;
+        var contador_doispontos = 0;
+        var contador_maior = 0;
+        var contador_menor = 0;
+        var contador_exclamacao = 0;
+        var contador_hashtag = 0;
+        var contador_sifrao = 0;
+        var contador_porcentagem = 0;
+        var contador_trema = 0;
+        var contador_comercial = 0;
+        var contador_asterisco = 0;
+        var contador_parenteses1 = 0;
+        var contador_parenteses2 = 0;
+       
+        for (i = 0; i < email.length; i++){
+            if (email[i] == '@'){
+                contador_arroba++
+            }
+        }
+
+        for (i = 0; i < email.length; i++){
+            if (email[i] == ';'){
+                contador_pontovirgula++
+            }
+        }
+
+        for (i = 0; i < email.length; i++){
+            if (email[i] == ':'){
+                contador_doispontos++
+            }
+        }
+
+        for (i = 0; i < email.length; i++){
+            if (email[i] == '>'){
+                contador_maior++
+            }
+        }
+
+        for (i = 0; i < email.length; i++){
+            if (email[i] == '<'){
+                contador_menor++
+            }
+        }
+
+        for (i = 0; i < email.length; i++){
+            if (email[i] == '!'){
+                contador_exclamacao++
+            }
+        }
+
+        for (i = 0; i < email.length; i++){
+            if (email[i] == '#'){
+                contador_hashtag++
+            }
+        }
+
+        for (i = 0; i < email.length; i++){
+            if (email[i] == '$'){
+                contador_sifrao++
+            }
+        }
+
+        for (i = 0; i < email.length; i++){
+            if (email[i] == '%'){
+                contador_porcentagem++
+            }
+        }
+
+        for (i = 0; i < email.length; i++){
+            if (email[i] == '¨'){
+                contador_trema++
+            }
+        }
+
+        for (i = 0; i < email.length; i++){
+            if (email[i] == '&'){
+                contador_comercial++
+            }
+        }
+
+        for (i = 0; i < email.length; i++){
+            if (email[i] == '*'){
+                contador_asterisco++
+            }
+        }
+
+        for (i = 0; i < email.length; i++){
+            if (email[i] == '('){
+                contador_parenteses1++
+            }
+        }
+
+        for (i = 0; i < email.length; i++){
+            if (email[i] == ')'){
+                contador_parenteses2++
+            }
+        }
+
+
+
+        if (tamanho_nome >= 2 && tamanho_sobrenome >= 2 && ddd >= 11 && ddd <= 99 && tamanho_celular == 9 && (email_br || email_com || email_school)
+    && contador_arroba == 1 && contador_pontovirgula == 0 && contador_doispontos == 0 && contador_maior == 0 && contador_menor == 0 && contador_exclamacao == 0
+&& contador_hashtag == 0 &&contador_sifrao == 0 && contador_porcentagem == 0 && contador_trema == 0 && contador_comercial == 0 && contador_asterisco == 0
+&& contador_parenteses1 == 0 && contador_parenteses2 == 0 && tamanho_senha >= 8 && (senha_arroba || senha_asterisco || senha_comercial || senha_exclamacao || 
+    senha_hashtag || senha_porcentagem || senha_sifrao) && senha == confirmar_senha && (senha_zero || senha_um || senha_dois || senha_tres || senha_quatro
+        || senha_cinco || senha_seis || senha_sete || senha_oito || senha_nove) ){
+            window.location.href= "login.html"
+        } else {
+            mensagem += `<h1>Cadastro Inválido</h1>
+            <h3>Verifique as informações inseridas. <br></h3>
+            <h4>A senha deve conter no mínimo 8 caracteres, um caractere especial e um número.</h4>`
+            container2.style.display = 'block'
+        }
+
+    div_mensagem.innerHTML = mensagem
+        
     }
 
 </script>
