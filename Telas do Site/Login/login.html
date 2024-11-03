@@ -10,13 +10,11 @@
 <body>
     
     <div class="container" >
-
         <h1 class="login" >Login</h1>
-        <input class="input_usuario" type="text" placeholder="Digite seu Usuário"><br><br><br><br>
-        <input class="input_senha" type="password" placeholder="Digite sua Senha">
+        <input class="input_usuario" type="text" placeholder="Email"><br><br><br><br>
+        <input class="input_senha" type="password" placeholder="Senha">
         <button onclick="entrar()" >Entrar</button>
         <button onclick="conta()" >Criar Conta</button>
-
     </div>
 
     
@@ -27,6 +25,12 @@
 
     function entrar(){
         window.location.href = 'home.html';
+    }
+
+    function conta(){
+
+        window.location.href= 'cadastrar.html'
+
     }
 
 </script>

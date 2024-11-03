@@ -1,0 +1,96 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('../Login/assets/imgtheorymusic.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: #333; /* Para uma melhor legibilidade */
+}
+
+/* Container principal */
+.container {
+    height: 500px;
+    width: 90%; /* Mais responsivo em dispositivos menores */
+    max-width: 400px;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.9); /* Fundo levemente transparente */
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    backdrop-filter: blur(5px); /* Efeito de desfoque no fundo */
+    transition: box-shadow 0.3s ease;
+}
+
+.input_nome, .input_sobrenome{
+    width: 40%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 15px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    transition: border 0.3s ease;
+}
+
+.input_email,.input_senha,.input_confirmar, .instrumento{
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 15px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    transition: border 0.3s ease;
+}
+
+.input_celular{
+    width: 60%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 15px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    transition: border 0.3s ease;
+}
+
+.input_ddd {
+    width: 10%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 15px;
+    border: 1px solid #ddd;
+    font-size: 11px;
+    transition: border 0.3s ease;
+}
+
+
+.input_nome:focus, .input_sobrenome:focus {
+    outline: none;
+    border-color: #5a67d8; /* Cor de foco nos campos */
+}
+
+button {
+    width: 50%;
+    padding: 10px;
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #5a67d8db;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #4c51bf;
+}
+
+button:active {
+    transform: scale(0.98);
+}

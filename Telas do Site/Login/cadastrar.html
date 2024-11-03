@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="cadastrar.css">
+</head>
+<body>
+    <div class="container" >
+        <h1>Cadastrar</h1>
+        <input class="input_nome" type="text" placeholder="Nome">
+        <input class="input_sobrenome" type="text" placeholder="Sobrenome"><br>
+        <input class="input_ddd" type="number" placeholder="DDD">
+        <input class="input_celular" type="number"placeholder="Celular">
+        <input class="input_email" type="text" placeholder="Email"><br>
+        <input class="input_senha" type="password" placeholder="Senha"><br>
+        <input class="input_confirmar" type="password" placeholder="Confirme sua Senha">
+        <select class="instrumento" name="Instrumento" id="">
+            <option value="">Escolha seu Instrumento</option>
+            <option value="">Guitarra</option>
+            <option value="">Violão</option>
+        </select><br>
+        <button onclick="cadastrar()" >Cadastrar</button>
+    </div>
+</body>
+</html>
+<script>
+
+    function cadastrar(){
+        window.location.href= "login.html"
+    }
+
+</script>
