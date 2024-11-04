@@ -13,19 +13,44 @@ body {
     color: #333; /* Para uma melhor legibilidade */
 }
 
+.logo{
+    position: relative;
+    height: 110px;
+    margin-bottom: 600px;
+    right: 0px;
+}
+
+.slogan-box {
+    background-color: #f9f9f9d1; /* Fundo suave */
+    color: black; /* Cor do texto */
+    font-size: 16px; /* Tamanho do texto */
+    padding: 20px; /* Espaçamento interno */
+    border-left: 5px solid #333; /* Linha de destaque à esquerda */
+    border-radius: 8px; /* Bordas arredondadas */
+    max-width: 600px; /* Largura máxima */
+    margin: 20px auto; /* Centraliza horizontalmente */
+    text-align: center; /* Centraliza o texto */
+    font-family: 'Arial', sans-serif; /* Fonte do texto */
+    margin-left: 460px;
+    margin-bottom: 650px;
+  }
+
+
 /* Container principal */
 .container {
+    position: absolute;
     height: 400px;
     width: 90%; /* Mais responsivo em dispositivos menores */
     max-width: 400px;
     padding: 30px;
-    background-color: rgba(255, 255, 255, 0.9); /* Fundo levemente transparente */
-    border: 1px solid #ddd;
+    background-color: rgba(245, 241, 220, 0.348);
+    border: 3px solid #ddd;
     border-radius: 20px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px); 
     text-align: center;
-    backdrop-filter: blur(5px); /* Efeito de desfoque no fundo */
     transition: box-shadow 0.3s ease;
+    margin-left: 50px;
 }
 
 .container:hover {
@@ -65,7 +90,7 @@ button {
     font-size: 16px;
     font-weight: bold;
     color: #fff;
-    background-color: #5a67d8db;
+    background-color: #d8bd5ac1;
     border: none;
     border-radius: 15px;
     cursor: pointer;
@@ -73,7 +98,7 @@ button {
 }
 
 button:hover {
-    background-color: #4c51bf;
+    background-color: #bfae4ce7;
 }
 
 button:active {
