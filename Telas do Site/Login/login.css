@@ -25,7 +25,6 @@ body {
     color: black; /* Cor do texto */
     font-size: 16px; /* Tamanho do texto */
     padding: 20px; /* Espaçamento interno */
-    border-left: 5px solid #333; /* Linha de destaque à esquerda */
     border-radius: 8px; /* Bordas arredondadas */
     max-width: 600px; /* Largura máxima */
     margin: 20px auto; /* Centraliza horizontalmente */
