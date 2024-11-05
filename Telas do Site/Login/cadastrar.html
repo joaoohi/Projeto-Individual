@@ -15,8 +15,9 @@
 <body>
     <div class="container" >
         <h1>Cadastrar</h1>
-        <input id="input_nome" class="input_nome" type="text" placeholder="Nome">
+        <input oninput="validar_inputnome()" id="input_nome" class="input_nome" type="text" placeholder="Nome">
         <input id="input_sobrenome" class="input_sobrenome" type="text" placeholder="Sobrenome"><br>
+        <div class="validar_nome" id="nome_validar"></div>
         <input id="input_ddd" class="input_ddd" type="number" placeholder="DDD">
         <input id="input_celular" class="input_celular" type="text"placeholder="Celular">
         <input id="input_email" class="input_email" type="text" placeholder="Email"><br>
@@ -194,6 +195,8 @@
             <h4>A senha deve conter no mínimo 8 caracteres, um caractere especial e um número.</h4>`
             container2.style.display = 'block'
         }
+
+        
 
     div_mensagem.innerHTML = mensagem
         
