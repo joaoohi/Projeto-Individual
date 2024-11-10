@@ -17,7 +17,7 @@
         <h1>Cadastrar</h1>
         <input oninput="validar_inputnome()" id="input_nome" class="input_nome" type="text" placeholder="Nome">
         <input id="input_sobrenome" class="input_sobrenome" type="text" placeholder="Sobrenome"><br>
-        <div class="validar_nome" id="nome_validar"></div>
+        <div id="nome_validar" ></div>
         <input id="input_ddd" class="input_ddd" type="number" placeholder="DDD">
         <input id="input_celular" class="input_celular" type="text"placeholder="Celular">
         <input id="input_email" class="input_email" type="text" placeholder="Email"><br>
@@ -200,6 +200,19 @@
 
     div_mensagem.innerHTML = mensagem
         
+    }
+
+    function validar_inputnome(){
+        var mensagem = '';
+        var nome = input_nome.value;
+        var tamanho_nome = nome.length;
+        var sobrenome = input_sobrenome.value;
+        var tamanho_sobrenome = sobrenome.length;
+
+       
+        
+
+        nome_validar.innerHTML = mensagem
     }
 
 </script>

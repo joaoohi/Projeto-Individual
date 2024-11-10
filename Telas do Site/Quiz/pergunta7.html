@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../Quiz/pergunta1.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Pergunta 7</h1>
+        <br><br>
+        <h2>No Campo Harmônico Maior, quais graus darão origem a acordes maiores? </h2>
+        <div>
+        <div class="alternativa_a"><b>A)</b >I, II, IV</div>
+        <div class="alternativa_b"><b>B)</b>I, III, VI</div>
+        <div class="alternativa_c"><b>C)</b>I, II, III</div>
+        <div class="alternativa_d"><b>D)</b>I, IV, V</div>
+        <div class="alternativa_c"><b>E)</b>I, III, VII</div>
+    </div>
+   <h2> Qual é a alternativa CORRETA?</h2>
+   <select id="alternativa">
+    <option>ESCOLHA</option>
+    <option>A</option>
+    <option>B</option>
+    <option>C</option>
+    <option>D</option>
+    <option>E</option>
+</select><br><br><br><br>
+<button onclick="conferir()">Conferir</button>
+    </div>
+    
+</body>
+</html>
+<script>
+
+    function conferir(){
+        var alternativas = alternativa.value;
+
+        if(alternativas == 'D'){
+           window.location.href = 'pergunta8.html'
+        } 
+    }
+
+</script>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../Quiz/pergunta1.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Pergunta 4</h1>
+        <br><br>
+        <h2>O que é Enarmonia? </h2>
+        <div>
+        <div class="alternativa_a"><b>A)</b >Conunto de acordes na música</div>
+        <div class="alternativa_b"><b>B)</b>Duas notas com o mesmo som, mas dois nomes diferentes</div>
+        <div class="alternativa_c"><b>C)</b>Duas notas com o mesmo nome, mas dois sons diferentes</div>
+        <div class="alternativa_d"><b>D)</b>Conjunto de notas harmônicas</div>
+        <div class="alternativa_c"><b>E)</b>Notas sem harmônia</div>
+    </div>
+   <h2> Qual é a alternativa CORRETA?</h2>
+   <select id="alternativa">
+    <option>ESCOLHA</option>
+    <option>A</option>
+    <option>B</option>
+    <option>C</option>
+    <option>D</option>
+    <option>E</option>
+</select><br><br><br><br>
+<button onclick="conferir()">Conferir</button>
+    </div>
+    
+</body>
+</html>
+<script>
+
+    function conferir(){
+        var alternativas = alternativa.value;
+
+        if(alternativas == 'B'){
+           window.location.href = 'pergunta5.html'
+        } 
+    }
+
+</script>

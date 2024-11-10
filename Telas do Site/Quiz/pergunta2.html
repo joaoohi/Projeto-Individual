@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../Quiz/pergunta1.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Pergunta 2</h1>
+        <br><br>
+        <h2>O que é #?</h2>
+        <div>
+        <div class="alternativa_a"><b>A)</b >Hashtag</div>
+        <div class="alternativa_b"><b>B)</b>Símbolo do Bemol</div>
+        <div class="alternativa_c"><b>C)</b> Símbolo do Sustenido</div>
+        <div class="alternativa_d"><b>D)</b>Uma Nota</div>
+        <div class="alternativa_c"><b>E)</b> Uma representação Rítmica</div>
+    </div>
+   <h2> Qual é a alternativa CORRETA?</h2>
+   <select id="alternativa">
+    <option>ESCOLHA</option>
+    <option>A</option>
+    <option>B</option>
+    <option>C</option>
+    <option>D</option>
+    <option>E</option>
+</select><br><br><br><br>
+<button onclick="conferir()">Conferir</button>
+    </div>
+    
+</body>
+</html>
+<script>
+
+    function conferir(){
+        var alternativas = alternativa.value;
+
+        if(alternativas == 'C'){
+           window.location.href = 'pergunta3.html'
+        } 
+    }
+
+</script>

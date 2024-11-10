@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../Quiz/pergunta1.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Pergunta 1</h1>
+        <br><br>
+        <h2>Quantas Notas Naturais existem na música?</h2>
+        <div>
+        <div class="alternativa_a"><b>A</b> 7</div>
+        <div class="alternativa_b"><b>B)</b> 8</div>
+        <div class="alternativa_c"><b>C)</b> 12</div>
+        <div class="alternativa_d"><b>D)</b> 12</div>
+        <div class="alternativa_c"><b>E)</b> 9</div>
+    </div>
+   <h2> Qual é a alternativa CORRETA?</h2>
+   <select id="alternativa">
+    <option>ESCOLHA</option>
+    <option>A</option>
+    <option>B</option>
+    <option>C</option>
+    <option>D</option>
+    <option>E</option>
+</select><br><br><br><br>
+<button onclick="conferir()">Conferir</button>
+    </div>
+    
+</body>
+</html>
+<script>
+
+    function conferir(){
+        var alternativas = alternativa.value;
+
+        if(alternativas == 'A'){
+           window.location.href = 'pergunta2.html'
+        } 
+    }
+
+</script>

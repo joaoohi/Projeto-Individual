@@ -1,0 +1,49 @@
+body {
+    background-color: #d8bd5aa1;
+}
+
+.container {
+    max-height: fit-content;
+    max-width: 400px;
+    padding: 30px;
+    background-color: rgba(245, 241, 220, 0.348);
+    border: 3px solid #ddd;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    backdrop-filter: blur(5px);
+    transition: box-shadow 0.3s ease;
+    margin-left: 75vh;
+    margin-top: 50px;
+}
+
+.alternativa_a, .alternativa_b, .alternativa_c, .alternativa_d, .alternativa_e{
+    font-size: x-large;
+}
+
+select {
+    height: 40px;
+    width: 90px;
+}
+
+button {
+    width: 50%;
+    padding: 10px;
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color:black;
+    background-color: #d8bd5ac1;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #bfae4ce7;
+}
+
+button:active {
+    transform: scale(0.98);
+}
