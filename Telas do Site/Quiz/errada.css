@@ -1,0 +1,18 @@
+body {
+    background-color: #d8bd5aa1;
+}
+
+.container {
+    max-height: fit-content;
+    max-width: 400px;
+    padding: 30px;
+    background-color: rgba(245, 241, 220, 0.348);
+    border: 3px solid #ddd;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    backdrop-filter: blur(5px);
+    transition: box-shadow 0.3s ease;
+    margin-left: 75vh;
+    margin-top: 50px;
+}
