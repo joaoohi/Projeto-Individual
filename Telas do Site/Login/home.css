@@ -1,3 +1,22 @@
 body{
-background-color:#d8bd5aa1;
+background-image: url('../Login/assets/imghome.webp');
+}
+
+nav {
+    background-color: #bfae4c9f;
+    padding: 30px;
+}
+
+a {
+    color: black;
+    font-size: 25px;
+}
+
+
+nav:hover {
+    background-color: #bfae4c43;
+}
+
+nav:active {
+    transform: scale(0.98);
 }
