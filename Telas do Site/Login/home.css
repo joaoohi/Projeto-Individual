@@ -1,22 +1,37 @@
-body{
-background-image: url('../Login/assets/imghome.webp');
+body {
+    background-color: #bfae4c9f;
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 nav {
-    background-color: #bfae4c9f;
-    padding: 30px;
+    display: flex;
+    width: 100%;
+    height: 80px;
+    background-color: #bfae4ccc;
+    justify-content: space-between;
+    gap: 20px;
+    align-items: center;
+
 }
 
 a {
     color: black;
     font-size: 25px;
+    text-decoration: none;
 }
 
-
-nav:hover {
-    background-color: #bfae4c43;
+a:hover {
+    background-color: #bfae4c;
 }
 
-nav:active {
+a:active {
     transform: scale(0.98);
 }
