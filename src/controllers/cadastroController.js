@@ -1,47 +1,46 @@
-var empresaModel = require("../models/empresaModel");
+var usuarioModel = require("../models/usuarioModel");
 
-function buscarPorCnpj(req, res) {
-  var cnpj = req.query.cnpj;
+function buscarPorEmail(req, res) {
+  var email = req.query.email;
 
-  empresaModel.buscarPorCnpj(cnpj).then((resultado) => {
+  usuarioModelModel.buscarPorEmailj(email).then((resultado) => {
     res.status(200).json(resultado);
   });
 }
 
 function listar(req, res) {
-  empresaModel.listar().then((resultado) => {
+  usuarioModel.listar().then((resultado) => {
     res.status(200).json(resultado);
   });
 }
 
 function buscarPorId(req, res) {
-  var id = req.params.id;
+  var idUsuario = req.params.idUsuario;
 
-  empresaModel.buscarPorId(id).then((resultado) => {
+  usuarioModel.buscarPorId(id).then((resultado) => {
     res.status(200).json(resultado);
   });
 }
 
-function cadastrar(req, res) {
-  var cnpj = req.body.cnpj;
-  var razaoSocial = req.body.razaoSocial;
-  var nome = req.body.nome
-    empresaModel.buscarPorCnpj(cnpj).then((resultado) => {
-      if (resultado.length > 0) {
-        res
-          .status(401)
-          .json({ mensagem: `a empresa com o cnpj ${cnpj} já existe` });
-      } else {
-        empresaModel.cadastrar(razaoSocial, cnpj).then((resultado) => {
-          res.status(201).json(resultado);
-        });
-      }
-    });
-}
+// function cadastrar(req, res) {
+// var email = req.body.email
+//   var sobrenome = req.body.sobrenome
+//   var nome = req.body.nome
+//     usuarioModel.buscarPorCnpj(cnpj).then((resultado) => {
+//       if (resultado.length > 0) {
+//         res
+//           .status(401)
+//           .json({ mensagem: `a empresa com o cnpj ${cnpj} já existe` });
+//       } else {
+//         usuarioModel.cadastrar(razaoSocial, cnpj).then((resultado) => {
+//           res.status(201).json(resultado);
+//         });
+//       }
+//     });
+// }
 
 module.exports = {
-  buscarPorCnpj,
+  buscarPorEmail,
   buscarPorId,
-  cadastrar,
   listar,
 };

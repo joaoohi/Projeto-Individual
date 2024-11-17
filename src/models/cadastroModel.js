@@ -1,27 +1,27 @@
 var database = require("../database/config");
 
 function buscarPorId(id) {
-  var instrucaoSql = `SELECT * FROM empresa WHERE id = '${id}'`;
+  var instrucaoSql = `SELECT * FROM usuario WHERE id = '${idUsuario}'`;
 
   return database.executar(instrucaoSql);
 }
 
 function listar() {
-  var instrucaoSql = `SELECT id, razao_social, cnpj, codigo_ativacao FROM empresa`;
+  var instrucaoSql = `SELECT idUsuario, nome, email, senha, fkCadastro FROM usuario`;
 
   return database.executar(instrucaoSql);
 }
 
-function buscarPorCnpj(cnpj) {
-  var instrucaoSql = `SELECT * FROM empresa WHERE cnpj = '${cnpj}'`;
+function buscarPorEmail(email) {
+  var instrucaoSql = `SELECT * FROM usuario WHERE email = '${email}'`;
 
   return database.executar(instrucaoSql);
 }
 
-function cadastrar(razaoSocial, cnpj) {
-  var instrucaoSql = `INSERT INTO empresa (razao_social, cnpj) VALUES ('${razaoSocial}', '${cnpj}')`;
+// function cadastrar(nome, sobrenome, email) {
+//   var instrucaoSql = `INSERT INTO usuario (razao_social, cnpj) VALUES ('${razaoSocial}', '${cnpj}')`;
 
-  return database.executar(instrucaoSql);
-}
+//   return database.executar(instrucaoSql);
+// }
 
-module.exports = { buscarPorCnpj, buscarPorId, cadastrar, listar };
+module.exports = {buscarPorId, listar, buscarPorEmail};

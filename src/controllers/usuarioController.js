@@ -1,5 +1,5 @@
 var usuarioModel = require("../models/usuarioModel");
-var aquarioModel = require("../models/aquarioModel");
+var teoriamusical = require("../models/teoriamusicalModel");
 
 function autenticar(req, res) {
     var email = req.body.email;
@@ -20,15 +20,15 @@ function autenticar(req, res) {
                     if (resultadoAutenticar.length == 1) {
                         console.log(resultadoAutenticar);
 
-                        aquarioModel.buscarAquariosPorEmpresa(resultadoAutenticar[0].empresaId)
-                            .then((resultadoAquarios) => {
-                                if (resultadoAquarios.length > 0) {
+                        teoriamusical.buscar(resultadoAutenticar[0].idUsuario)
+                            .then((resultado) => {
+                                if (resultado.length > 0) {
                                     res.json({
-                                        id: resultadoAutenticar[0].id,
+                                        idUsuario: resultadoAutenticar[0].idUsuario,
                                         email: resultadoAutenticar[0].email,
                                         nome: resultadoAutenticar[0].nome,
                                         senha: resultadoAutenticar[0].senha,
-                                        aquarios: resultadoAquarios
+                            
                                     });
                                 } else {
                                     res.status(204).json({ aquarios: [] });
@@ -54,26 +54,35 @@ function autenticar(req, res) {
 function cadastrar(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     var nome = req.body.nomeServer;
+    var sobrenome = req.body.sobrenomeServer;
+    var ddd = req.body.dddServer;
+    var celular = req.body.celularServer
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
-    var fkEmpresa = req.body.idEmpresaVincularServer;
-    var cpf = req.body.cpfServer;
+    var confirmar_senha = req.body.confirmar_senhaServer;
+    var instrumento = req.body.instrumentoServer;
 
     // Faça as validações dos valores
     if (nome == undefined) {
         res.status(400).send("Seu nome está undefined!");
-    } else if (email == undefined) {
+    } else if (sobrenome == undefined) {
+        res.status(400).send("Seu sobrenome está undefined!");
+    } else if (ddd == undefined) {
+        res.status(400).send("Seu DDD está undefined!");
+    } else if (celular == undefined) {
+        res.status(400).send("Seu celular está undefined!");
+    } else if (email == undefined){
         res.status(400).send("Seu email está undefined!");
-    } else if (senha == undefined) {
+    } else if(senha == undefined){
         res.status(400).send("Sua senha está undefined!");
-    } else if (fkEmpresa == undefined) {
-        res.status(400).send("Sua empresa a vincular está undefined!");
-    } else if (cpf == undefined){
-        res.status(400).send("Seu CPF a vincular está undefined!");
+    } else if(confirmar_senha == undefined){
+        res.status(400).send("Seu confirmar senha está undefined!");
+    } else if(instrumento == undefined){
+        res.status(400).send("Seu instrumento está undefined!");
     }
 
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(nome, email, senha, fkEmpresa, cpf)
+        usuarioModel.cadastrar(nome, sobrenome, ddd, celular, email, senha, confirmar_senha, instrumento)
             .then(
                 function (resultado) {
                     res.json(resultado);
