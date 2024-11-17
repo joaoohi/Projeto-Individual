@@ -9,6 +9,11 @@ header{
     display: flex;
     align-items: center;
     justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
 }
 
 nav {
@@ -24,7 +29,7 @@ nav {
 
 a {
     color: black;
-    font-size: 25px;
+    font-size: 20px;
     text-decoration: none;
 }
 
