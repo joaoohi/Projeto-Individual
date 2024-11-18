@@ -4,19 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../Quiz/pergunta1.css">
+    <link rel="stylesheet" href="../publics/css/pergunta1.css">
 </head>
 <body>
     <div class="container">
-        <h1>Pergunta 2</h1>
+        <h1>Pergunta 4</h1>
         <br><br>
-        <h2>O que é #?</h2>
+        <h2>O que é Enarmonia? </h2>
         <div>
-        <div class="alternativa_a"><b>A)</b >Hashtag</div>
-        <div class="alternativa_b"><b>B)</b>Símbolo do Bemol</div>
-        <div class="alternativa_c"><b>C)</b> Símbolo do Sustenido</div>
-        <div class="alternativa_d"><b>D)</b>Uma Nota</div>
-        <div class="alternativa_c"><b>E)</b> Uma representação Rítmica</div>
+        <div class="alternativa_a"><b>A)</b >Conunto de acordes na música</div>
+        <div class="alternativa_b"><b>B)</b>Duas notas com o mesmo som, mas dois nomes diferentes</div>
+        <div class="alternativa_c"><b>C)</b>Duas notas com o mesmo nome, mas dois sons diferentes</div>
+        <div class="alternativa_d"><b>D)</b>Conjunto de notas harmônicas</div>
+        <div class="alternativa_c"><b>E)</b>Notas sem harmônia</div>
     </div>
    <h2> Qual é a alternativa CORRETA?</h2>
    <select id="alternativa">
@@ -37,8 +37,8 @@
     function conferir(){
         var alternativas = alternativa.value;
 
-        if(alternativas == 'C'){
-           window.location.href = 'pergunta3.html'
+        if(alternativas == 'B'){
+           window.location.href = 'pergunta5.html'
         } else {
             window.location.href = 'errada.html'
         }
