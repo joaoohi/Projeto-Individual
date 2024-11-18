@@ -1,10 +1,10 @@
 var mysql = require("mysql2");
-
+var ambiente_processo = 'desenvolvimento';
 // CONEXÃO DO BANCO MYSQL SERVER
 var mySqlConfig = {
-    host: localhost,
-    database: teoriamusical,
-    user: root,
+    host: 'localhost',
+    database: 'teoriamusical',
+    user: 'root',
     password: '@e4e5cf6cc6bb4#',
     port: 3306
 };
