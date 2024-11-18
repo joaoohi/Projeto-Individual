@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../publics/css/cadastrar.css">
+    <link rel="stylesheet" href="./css/cadastrar.css">
     <style>
         #container2 {
             display: none;
@@ -57,8 +57,7 @@
         var tamanho_celular = celular.length;
         var tamanho_senha = senha.length;
 
-        console.log(input_nome.value);
-        console.log(input_nome.length);
+        
 
 
         // VALIDAÇÃO DO EMAIL
@@ -197,7 +196,7 @@
 
             // FETCH
 
-            fetch("/usuarios/cadastrar", {
+            fetch("/usuario/cadastrar", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -211,7 +210,8 @@
                     celularServer: celular,
                     emailServer: email,
                     senhaServer: senha,
-                    confirmarServe: confirmar_senha
+                    confirmarServer: confirmar_senha,
+                    instrumentoServer: "Guitarra"
                 }),
             })
                 .then(function (resposta) {
@@ -227,15 +227,15 @@
                             window.location = "login.html";
                         }, "2000");
 
-                        limparFormulario();
-                        finalizarAguardar();
+                    
+                        
                     } else {
                         throw "Houve um erro ao tentar realizar o cadastro!";
                     }
                 })
                 .catch(function (resposta) {
                     console.log(`#ERRO: ${resposta}`);
-                    finalizarAguardar();
+                 
                 });
 
             return false;

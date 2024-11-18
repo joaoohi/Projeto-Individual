@@ -56,10 +56,10 @@ function cadastrar(req, res) {
     var nome = req.body.nomeServer;
     var sobrenome = req.body.sobrenomeServer;
     var ddd = req.body.dddServer;
-    var celular = req.body.celularServer
+    var celular = req.body.celularServer;
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
-    var confirmar_senha = req.body.confirmar_senhaServer;
+    var confirmar_senha = req.body.confirmarServer;
     var instrumento = req.body.instrumentoServer;
 
     // Faça as validações dos valores
