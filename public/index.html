@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="../Login/sessao.js"></script>
+    <script src="../js/sessao.js"></script>
     <link rel="stylesheet" href="./css/login.css">
     
 </head>
@@ -17,8 +17,8 @@
       </div>
     <div class="container" >
         <h1 class="login" >Login</h1>
-        <input class="input_usuario" type="text" placeholder="Email"><br><br><br><br>
-        <input class="input_senha" type="password" placeholder="Senha">
+        <input id="ipt_usuario" class="input_usuario" type="text" placeholder="Email"><br><br><br><br>
+        <input id="ipt_senha" class="input_senha" type="password" placeholder="Senha">
         <button onclick="entrar()" >Entrar</button>
         <button onclick="conta()" >Criar Conta</button>
     </div>
@@ -28,34 +28,33 @@
 </html>
 <script>
 
-    function entrar(){
+    
         function entrar() {
-        aguardar();
 
-        var emailVar = input_usuario.value;
-        var senhaVar = input_senha.value;
+        var emailVar = ipt_usuario.value;
+        var senhaVar = ipt_senha.value;
 
         if (emailVar == "" || senhaVar == "") {
             cardErro.style.display = "block"
             mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
-            finalizarAguardar();
+            
             return false;
         }
-        else {
-            setInterval(sumirMensagem, 5000)
-        }
+        // else {
+        //     setInterval(sumirMensagem, 5000)
+        // }
 
         console.log("FORM LOGIN: ", emailVar);
         console.log("FORM SENHA: ", senhaVar);
 
-        fetch("/usuarios/autenticar", {
+        fetch("/usuario/autenticar", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                emailServer: email,
-                senhaServer: senha
+                emailServer: emailVar,
+                senhaServer: senhaVar
             })
         }).then(function (resposta) {
             console.log("ESTOU NO THEN DO entrar()!")
@@ -67,13 +66,13 @@
                     console.log(json);
                     console.log(JSON.stringify(json));
                     sessionStorage.EMAIL_USUARIO = json.email;
-                    sessionStorage.NOME_USUARIO = json.nome;
-                    sessionStorage.ID_USUARIO = json.idUsuario;
-                    // sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
+                    sessionStorage.NOME_USUARIO = json.senha;
+                   
+                   
 
-                    setTimeout(function () {
+                  
                         window.location = "../home.html"
-                    }, 1000); // apenas para exibir o loading
+                
 
                 });
 
@@ -83,7 +82,7 @@
 
                 resposta.text().then(texto => {
                     console.error(texto);
-                    finalizarAguardar(texto);
+                   
                 });
             }
 
@@ -93,7 +92,7 @@
 
         return false;
     }
-    }
+    
 
     function conta(){
 

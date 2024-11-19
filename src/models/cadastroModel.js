@@ -18,10 +18,10 @@ function buscarPorEmail(email) {
   return database.executar(instrucaoSql);
 }
 
-// function cadastrar(nome, sobrenome, email) {
-//   var instrucaoSql = `INSERT INTO usuario (razao_social, cnpj) VALUES ('${razaoSocial}', '${cnpj}')`;
+function cadastrar(nome, sobrenome, ddd, celular, email, senha, confirmar_senha, instrumento) {
+  var instrucaoSql = `INSERT INTO usuario VALUES ('${nome}', '${sobrenomej}', '${ddd}', '${celular}', '${email}', '${senha}', '${confirmar_senha}', '${instrumento}' )`;
 
-//   return database.executar(instrucaoSql);
-// }
+  return database.executar(instrucaoSql);
+}
 
 module.exports = {buscarPorId, listar, buscarPorEmail};

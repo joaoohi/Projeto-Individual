@@ -24,7 +24,7 @@
         <input id="input_email" class="input_email" type="text" placeholder="Email"><br>
         <input id="input_senha" class="input_senha" type="password" placeholder="Senha"><br>
         <input id="input_confirmar" class="input_confirmar" type="password" placeholder="Confirme sua Senha">
-        <select class="instrumento" name="Instrumento" id="">
+        <select class="instrumento" name="Instrumento" id="id_instrumento">
             <option value="">Escolha seu Instrumento</option>
             <option value="">Guitarra</option>
             <option value="">Violão</option>
@@ -32,7 +32,7 @@
         <button onclick="cadastrar()">Cadastrar</button><br>
     </div>
     <div id="container2" class="container2">
-        <img src="../publics/assets/invalido.png" alt="">
+        <img src="../assets/invalido.png" alt="">
         <div class="mensagem_invalido" id="div_mensagem"></div>
     </div>
 
@@ -56,8 +56,9 @@
         var tamanho_sobrenome = sobrenome.length;
         var tamanho_celular = celular.length;
         var tamanho_senha = senha.length;
+        var instrumento = id_instrumento.value;
 
-        
+
 
 
         // VALIDAÇÃO DO EMAIL
@@ -193,10 +194,8 @@
             && contador_parenteses1 == 0 && contador_parenteses2 == 0 && tamanho_senha >= 8 && (senha_arroba || senha_asterisco || senha_comercial || senha_exclamacao ||
                 senha_hashtag || senha_porcentagem || senha_sifrao) && senha == confirmar_senha && (senha_zero || senha_um || senha_dois || senha_tres || senha_quatro
                     || senha_cinco || senha_seis || senha_sete || senha_oito || senha_nove)) {
-
-            // FETCH
-
-            fetch("/usuario/cadastrar", {
+           
+                        fetch("/usuario/cadastrar", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -211,36 +210,32 @@
                     emailServer: email,
                     senhaServer: senha,
                     confirmarServer: confirmar_senha,
-                    instrumentoServer: "Guitarra"
+                    instrumentoServer: instrumento
                 }),
             })
                 .then(function (resposta) {
                     console.log("resposta: ", resposta);
 
                     if (resposta.ok) {
-                        cardErro.style.display = "block";
-
-                        mensagem_erro.innerHTML =
-                            "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
-
-                        setTimeout(() => {
-                            window.location = "login.html";
-                        }, "2000");
-
-                    
                         
+
+                        
+                            window.location.href = "index.html";
+                       
+
+
+
                     } else {
                         throw "Houve um erro ao tentar realizar o cadastro!";
                     }
                 })
                 .catch(function (resposta) {
                     console.log(`#ERRO: ${resposta}`);
-                 
+
                 });
 
             return false;
-
-            // window.location.href = "login.html"
+            
 
         } else {
             mensagem += `<h1>Cadastro Inválido</h1>

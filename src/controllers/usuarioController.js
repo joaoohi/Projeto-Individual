@@ -2,16 +2,16 @@ var usuarioModel = require("../models/usuarioModel");
 var teoriamusical = require("../models/teoriamusicalModel");
 
 function autenticar(req, res) {
-    var email = req.body.email;
-    var senha = req.body.senha;
+    var email = req.body.emailServer;
+    var senha = req.body.senhaServer;
 
-    if (email == undefined) {
+    if (emailVar == undefined) {
         res.status(400).send("Seu email está undefined!");
-    } else if (senha == undefined) {
+    } else if (senhaVar == undefined) {
         res.status(400).send("Sua senha está indefinida!");
     } else {
 
-        usuarioModel.autenticar(email, senha)
+        usuarioModel.autenticar(emailVar, senhaVar)
             .then(
                 function (resultadoAutenticar) {
                     console.log(`\nResultados encontrados: ${resultadoAutenticar.length}`);
@@ -24,15 +24,11 @@ function autenticar(req, res) {
                             .then((resultado) => {
                                 if (resultado.length > 0) {
                                     res.json({
-                                        idUsuario: resultadoAutenticar[0].idUsuario,
                                         email: resultadoAutenticar[0].email,
-                                        nome: resultadoAutenticar[0].nome,
                                         senha: resultadoAutenticar[0].senha,
                             
                                     });
-                                } else {
-                                    res.status(204).json({ aquarios: [] });
-                                }
+                                } 
                             })
                     } else if (resultadoAutenticar.length == 0) {
                         res.status(403).send("Email e/ou senha inválido(s)");
