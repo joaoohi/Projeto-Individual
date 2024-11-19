@@ -1,48 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="../js/sessao.js"></script>
     <link rel="stylesheet" href="./css/login.css">
-    
+
 </head>
+
 <body>
     <div>
         <img class="logo" src="./assets/logotheory.png" alt="">
     </div>
     <div class="slogan-box">
         Desvendando a linguagem da música, uma nota por vez.
-      </div>
-    <div class="container" >
-        <h1 class="login" >Login</h1>
+    </div>
+    <div class="container">
+        <h1 class="login">Login</h1>
         <input id="ipt_usuario" class="input_usuario" type="text" placeholder="Email"><br><br><br><br>
         <input id="ipt_senha" class="input_senha" type="password" placeholder="Senha">
-        <button onclick="entrar()" >Entrar</button>
-        <button onclick="conta()" >Criar Conta</button>
+        <button onclick="entrar()">Entrar</button>
+        <button onclick="conta()">Criar Conta</button>
     </div>
 
 
 </body>
+
 </html>
 <script>
 
-    
-        function entrar() {
+
+    function entrar() {
 
         var emailVar = ipt_usuario.value;
         var senhaVar = ipt_senha.value;
-
         if (emailVar == "" || senhaVar == "") {
             cardErro.style.display = "block"
             mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
-            
+
             return false;
         }
-        // else {
-        //     setInterval(sumirMensagem, 5000)
-        // }
 
         console.log("FORM LOGIN: ", emailVar);
         console.log("FORM SENHA: ", senhaVar);
@@ -68,11 +67,8 @@
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.senha;
                    
-                   
 
-                  
-                        window.location = "../home.html"
-                
+                    window.location.href = 'home.html';
 
                 });
 
@@ -82,7 +78,7 @@
 
                 resposta.text().then(texto => {
                     console.error(texto);
-                   
+
                 });
             }
 
@@ -92,11 +88,11 @@
 
         return false;
     }
-    
 
-    function conta(){
 
-        window.location.href= 'cadastrar.html'
+    function conta() {
+
+        window.location.href = 'cadastrar.html'
 
     }
 
