@@ -20,7 +20,11 @@ function autenticar(req, res) {
                     if (resultadoAutenticar.length == 1) {
                         console.log(resultadoAutenticar);
 
-                        window.location = '../home.html'
+                        res.json({
+                            email: resultadoAutenticar[0].email,
+                            senha: resultadoAutenticar[0].email
+
+                        });
                         // teoriamusical.buscar(resultadoAutenticar[0].idUsuario)
                         //     .then((resultado) => {
                         //         if (resultado.length > 0) {
