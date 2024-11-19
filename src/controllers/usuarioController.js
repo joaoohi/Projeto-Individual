@@ -17,24 +17,25 @@ function autenticar(req, res) {
                     console.log(`\nResultados encontrados: ${resultadoAutenticar.length}`);
                     console.log(`Resultados: ${JSON.stringify(resultadoAutenticar)}`); // transforma JSON em String
 
-                    // if (resultadoAutenticar.length == 1) {
-                    //     console.log(resultadoAutenticar);
+                    if (resultadoAutenticar.length == 1) {
+                        console.log(resultadoAutenticar);
 
-                    //     teoriamusical.buscar(resultadoAutenticar[0].idUsuario)
-                    //         .then((resultado) => {
-                    //             if (resultado.length > 0) {
-                    //                 res.json({
-                    //                     email: resultadoAutenticar[0].email,
-                    //                     senha: resultadoAutenticar[0].senha,
+                        window.location = '../home.html'
+                        // teoriamusical.buscar(resultadoAutenticar[0].idUsuario)
+                        //     .then((resultado) => {
+                        //         if (resultado.length > 0) {
+                        //             res.json({
+                        //                 email: resultadoAutenticar[0].email,
+                        //                 senha: resultadoAutenticar[0].senha,
                             
-                    //                 });
-                    //             } 
-                    //         })
-                    // } else if (resultadoAutenticar.length == 0) {
-                    //     res.status(403).send("Email e/ou senha inválido(s)");
-                    // } else {
-                    //     res.status(403).send("Mais de um usuário com o mesmo login e senha!");
-                    // }
+                        //             });
+                        //         } 
+                        //     })
+                    } else if (resultadoAutenticar.length == 0) {
+                        res.status(403).send("Email e/ou senha inválido(s)");
+                    } else {
+                        res.status(403).send("Mais de um usuário com o mesmo login e senha!");
+                    }
                 }
             ).catch(
                 function (erro) {

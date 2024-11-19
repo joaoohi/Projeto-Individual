@@ -36,6 +36,7 @@
 
         var emailVar = ipt_usuario.value;
         var senhaVar = ipt_senha.value;
+        
         if (emailVar == "" || senhaVar == "") {
             cardErro.style.display = "block"
             mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
@@ -65,10 +66,10 @@
                     console.log(json);
                     console.log(JSON.stringify(json));
                     sessionStorage.EMAIL_USUARIO = json.email;
-                    sessionStorage.NOME_USUARIO = json.senha;
+                    sessionStorage.SENHA_USUARIO = json.senha;
                    
 
-                    window.location.href = 'home.html';
+                    window.location = 'home.html';
 
                 });
 

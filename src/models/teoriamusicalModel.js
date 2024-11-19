@@ -1,23 +1,23 @@
 var database = require("../database/config");
 
-// function buscar(idUsuario) {
+function buscar(idUsuario) {
 
-//   var instrucaoSql = `SELECT * FROM usuario WHERE idUsuario = ${idUsuario}`;
+  var instrucaoSql = `SELECT * FROM usuario WHERE idUsuario = ${idUsuario}`;
 
-//   console.log("Executando a instrução SQL: \n" + instrucaoSql);
-//   return database.executar(instrucaoSql);
-// }
+  console.log("Executando a instrução SQL: \n" + instrucaoSql);
+  return database.executar(instrucaoSql);
+}
 
-// function cadastrar(empresaId, descricao) {
+function cadastrar(email, senha) {
   
-//   var instrucaoSql = `INSERT INTO (descricao, fk_empresa) aquario VALUES (${descricao}, ${empresaId})`;
+  var instrucaoSql = `INSERT INTO (email, senha) aquario VALUES (${email}, ${senha})`;
 
-//   console.log("Executando a instrução SQL: \n" + instrucaoSql);
-//   return database.executar(instrucaoSql);
-// }
+  console.log("Executando a instrução SQL: \n" + instrucaoSql);
+  return database.executar(instrucaoSql);
+}
 
 
-// module.exports = {
-//   buscar,
-//   cadastrar
-// }
+module.exports = {
+  buscar,
+  cadastrar
+}
