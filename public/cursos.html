@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../public/css/cursos.css">
+</head>
+<body>
+    
+    <header>
+        <nav>
+            <a href="../public/home.html">HOME</a>
+            <a href="../public/pergunta1.html">QUIZ</a>
+            <a href="../public/cursos.html">CURSOS</a>
+            <a href="">ARTIGOS</a>
+            <a href="">FERRAMENTAS</a>
+            <a href="index.html">SAIR</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>Escolha o que você gostaria de aprender agora</h1>
+       <button onclick="harmonia()">Harmonia, Melodia e Ritmo</button>
+       <button onclick="partituras()">Como Ler Partituras</button>
+       <button onclick="campo()">Campo Harmônico</button>
+       <button onclick="escalas()">Escalas</button>
+    </div>
+
+</body>
+</html>
+<script>
+    function harmonia(){
+        window.location.href = '../public/harmoniacursos.html'
+    }
+
+    function partituras(){
+        window.location.href = '../public/partiturascursos.html'
+    }
+
+    function campo(){
+        window.location.href = '../public/campoharcursos.html'
+    }
+
+    function escalas(){
+        window.location.href = '../public/escalascursos.html'
+    }
+</script>

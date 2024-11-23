@@ -4,7 +4,7 @@ body {
     padding: 0;
 }
 
-header{
+header {
     height: 60px;
     display: flex;
     align-items: center;
@@ -14,29 +14,104 @@ header{
     left: 0;
     right: 0;
     z-index: 10;
+
+    /* Estilo Vintage */
+    background: linear-gradient(to bottom, #d4b483, #b29468);
+    /* Tons de pergaminho */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    /* Sombra suave */
+    border-bottom: 2px solid #a37646;
+    /* Linha decorativa */
+    font-family: 'Georgia', serif;
+    /* Estilo clássico */
+    color: #fff;
+    /* Texto claro */
 }
+
+header a {
+    color: #fff;
+    /* Links claros */
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+header a:hover {
+    color: #f0e6d2;
+    /* Efeito hover em tom pastel */
+}
+
+
 
 nav {
     display: flex;
     width: 100%;
     height: 80px;
-    background-color: #bfae4ccc;
     justify-content: space-between;
     gap: 20px;
     align-items: center;
-
 }
 
-a {
-    color: black;
-    font-size: 20px;
-    text-decoration: none;
+
+
+
+
+.banner img {
+    height: 119vh;
 }
 
-a:hover {
-    background-color: #bfae4c;
+.banner2 {
+    position: relative; /* Necessário para que o texto seja posicionado em relação ao contêiner */
+    width: 100%; /* Garante que o banner ocupe toda a largura */
+    height: 300px; /* Ajuste conforme a altura desejada */
+    overflow: hidden; /* Previne elementos de sair do contêiner */
 }
 
-a:active {
-    transform: scale(0.98);
+.banner2 img {
+    width: 100%; /* Imagem ocupa toda a largura */
+    height: 100%; /* Imagem ocupa toda a altura */
+    object-fit: cover; /* Garante que a imagem não fique distorcida */
+    display: block; /* Remove espaçamento indesejado */
+    filter: brightness(80%); /* Escurece a imagem para contraste com o texto */
+    margin-top: -35px;
+}
+
+@keyframes fadeInOut {
+    0%, 100% {
+        opacity: 0; /* Invisível no início e no final */
+    }
+    50% {
+        opacity: 1; /* Totalmente visível no meio */
+    }
+}
+
+@keyframes colorChange {
+    0% {
+        color: #ff6f61; /* Vermelho suave */
+    }
+    25% {
+        color: #ffa726; /* Laranja */
+    }
+    75% {
+        color: #42a5f5; /* Azul */
+    }
+    100% {
+        color: #ff6f61; /* Volta ao vermelho */
+    }
+}
+
+.banner-text {
+    position: absolute; /* Torna o texto sobreposto */
+    top: 50%; /* Alinha ao centro verticalmente */
+    left: 50%; /* Alinha ao centro horizontalmente */
+    transform: translate(-50%, -50%); /* Ajusta para centralizar perfeitamente */
+    color: #fff; /* Texto branco */
+    font-size: 4rem; /* Ajuste o tamanho conforme necessário */
+    font-family: 'Georgia', serif; /* Estilo clássico */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Sombra para melhor visibilidade */
+    text-align: center; /* Centraliza o texto */
+    z-index: 1; /* Garante que o texto esteja sobre a imagem */
+    animation: fadeInOut 2.5s infinite, colorChange 5s infinite; 
 }
