@@ -115,3 +115,63 @@ nav {
     z-index: 1; /* Garante que o texto esteja sobre a imagem */
     animation: fadeInOut 2.5s infinite, colorChange 5s infinite; 
 }
+
+.paragrafo{
+    margin-top: -20px;
+    font-size: 1.5rem;
+    margin-left: 700px;
+}
+
+
+
+
+
+.container p {
+    font-size: 20px;
+}
+
+
+/* Contêiner principal com imagem de fundo */
+.image-background {
+    background-image: url("../assets/harmoniaviolao.jpg"); /* Substitua pelo caminho correto da imagem */
+    background-size: cover; /* Ajusta a imagem ao tamanho da div */
+    background-position: center; /* Centraliza a imagem */
+    width: 100%; /* Largura total */
+    height: 80vh; /* Altura total da tela */
+    position: relative; /* Define o contexto para posicionamento absoluto */
+    margin-top: -35px;
+}
+
+/* Estilo do primeiro container (texto) */
+.container {
+    position: absolute; /* Permite posicioná-lo sobre o fundo */
+    top: 20%; /* Ajuste a posição vertical */
+    left: 30%; /* Ajuste a posição horizontal */
+    width: 40%; /* Ajuste a largura conforme necessário */
+    background: rgba(0, 0, 0, 0.6); /* Fundo semi-transparente para contraste */
+    color: #fff; /* Texto branco para boa leitura */
+    padding: 20px; /* Espaçamento interno */
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra leve */
+    z-index: 2; /* Certifica-se de que está sobre a imagem de fundo */
+}
+
+
+.guitar{
+    height: 600px;
+    width: 100%;
+}
+
+
+footer {
+    /* background-color: rgb(106, 245, 245); */
+    background: linear-gradient(180deg, #ffe9b3 0%, #ebb94ca1 100%);
+    width: 98.7%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    filter: drop-shadow(0 8px 20px rgba(8, 99, 91, 0.5));
+    margin-top: -5px;
+    
+}
