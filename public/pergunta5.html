@@ -22,7 +22,7 @@
         <br><br>
         <h2>O que são Escalas? </h2>
         <div>
-        <div class="alternativa_a"><b>A)</b >Conunto de notas com um intervalo específico entre elas</div>
+        <div class="alternativa_a"><b>A)</b >Conjunto de notas com um intervalo específico entre elas</div>
         <div class="alternativa_b"><b>B)</b>Conjunto de acordes que podem ser tocados na música</div>
         <div class="alternativa_c"><b>C)</b>Notas sem acidentes (# ou b) que podem ser tocadas na tonalidade</div>
         <div class="alternativa_d"><b>D)</b>Conjunto de notas em sequência cromática</div>
@@ -37,21 +37,49 @@
     <option>D</option>
     <option>E</option>
 </select><br><br><br><br>
-<button onclick="conferir()">Conferir</button>
+<button onclick="cadastrarResposta()">Conferir</button>
     </div>
     
 </body>
 </html>
 <script>
 
-    function conferir(){
-        var alternativas = alternativa.value;
+function cadastrarResposta(numeroPergunta, resposta) {
 
-        if(alternativas == 'A'){
-           window.location.href = 'pergunta6.html'
+var numeroPergunta = 5;
+var resposta = alternativa.value;
+
+if (resposta == 'A'){
+            resposta = 1
         } else {
-            window.location.href = 'errada.html'
+            resposta = 0
         }
-    }
+
+fetch("/usuario/cadastrarResposta", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+        numeroPerguntaServer: numeroPergunta,
+        respostaServer: resposta
+
+    }),
+})
+    .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+
+    })
+    .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+
+    });
+
+window.location.href = 'pergunta6.html';
+
+}
 
 </script>

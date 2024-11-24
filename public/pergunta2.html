@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./css/pergunta1.css">
 </head>
+
 <body>
     <header>
         <nav>
@@ -22,36 +24,76 @@
         <br><br>
         <h2>O que é #?</h2>
         <div>
-        <div class="alternativa_a"><b>A)</b >Hashtag</div>
-        <div class="alternativa_b"><b>B)</b>Símbolo do Bemol</div>
-        <div class="alternativa_c"><b>C)</b> Símbolo do Sustenido</div>
-        <div class="alternativa_d"><b>D)</b>Uma Nota</div>
-        <div class="alternativa_c"><b>E)</b> Uma representação Rítmica</div>
+            <div class="alternativa_a"><b>A)</b>Hashtag</div>
+            <div class="alternativa_b"><b>B)</b>Símbolo do Bemol</div>
+            <div class="alternativa_c"><b>C)</b> Símbolo do Sustenido</div>
+            <div class="alternativa_d"><b>D)</b>Uma Nota</div>
+            <div class="alternativa_c"><b>E)</b> Uma representação Rítmica</div>
+        </div>
+        <h2> Qual é a alternativa CORRETA?</h2>
+        <select id="alternativa">
+            <option>ESCOLHA</option>
+            <option>A</option>
+            <option>B</option>
+            <option>C</option>
+            <option>D</option>
+            <option>E</option>
+        </select><br><br><br><br>
+        <button onclick="cadastrarResposta()">Conferir</button>
     </div>
-   <h2> Qual é a alternativa CORRETA?</h2>
-   <select id="alternativa">
-    <option>ESCOLHA</option>
-    <option>A</option>
-    <option>B</option>
-    <option>C</option>
-    <option>D</option>
-    <option>E</option>
-</select><br><br><br><br>
-<button onclick="conferir()">Conferir</button>
-    </div>
-    
+
 </body>
+
 </html>
 <script>
 
-    function conferir(){
-        var alternativas = alternativa.value;
+    // function conferir(){
+    //     var alternativas = alternativa.value;
 
-        if(alternativas == 'C'){
-           window.location.href = 'pergunta3.html'
+    //     if(alternativas == 'C'){
+    //        window.location.href = 'pergunta3.html'
+    //     } else {
+    //         window.location.href = 'errada.html'
+    //     }
+    // }
+
+
+    function cadastrarResposta(numeroPergunta, resposta) {
+
+        var numeroPergunta = 2;
+        var resposta = alternativa.value;
+
+        if (resposta == 'C'){
+            resposta = 1
         } else {
-            window.location.href = 'errada.html'
+            resposta = 0
         }
+
+        fetch("/usuario/cadastrarResposta", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                numeroPerguntaServer: numeroPergunta,
+                respostaServer: resposta
+
+            }),
+        })
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
+
+
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+
+            });
+
+        window.location.href = 'pergunta3.html';
+
     }
 
 </script>

@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./css/pergunta1.css">
 </head>
+
 <body>
     <header>
         <nav>
@@ -17,41 +19,114 @@
             <a href="index.html">SAIR</a>
         </nav>
     </header>
-    <div class="container">
+    <div id="pergunta" class="container" style="display: block;">
         <h1>Pergunta 1</h1>
         <br><br>
         <h2>Quantas Notas Naturais existem na música?</h2>
         <div>
-        <div class="alternativa_a"><b>A</b> 7</div>
-        <div class="alternativa_b"><b>B)</b> 8</div>
-        <div class="alternativa_c"><b>C)</b> 12</div>
-        <div class="alternativa_d"><b>D)</b> 12</div>
-        <div class="alternativa_c"><b>E)</b> 9</div>
+            <div class="alternativa_a"><b>A</b> 7</div>
+            <div class="alternativa_b"><b>B)</b> 8</div>
+            <div class="alternativa_c"><b>C)</b> 12</div>
+            <div class="alternativa_d"><b>D)</b> 12</div>
+            <div class="alternativa_c"><b>E)</b> 9</div>
+        </div>
+        <h2> Qual é a alternativa CORRETA?</h2>
+        <select id="alternativa">
+            <option>ESCOLHA</option>
+            <option>A</option>
+            <option>B</option>
+            <option>C</option>
+            <option>D</option>
+            <option>E</option>
+        </select><br><br><br><br>
+        <button onclick="cadastrarResposta()">Conferir</button>
     </div>
-   <h2> Qual é a alternativa CORRETA?</h2>
-   <select id="alternativa">
-    <option>ESCOLHA</option>
-    <option>A</option>
-    <option>B</option>
-    <option>C</option>
-    <option>D</option>
-    <option>E</option>
-</select><br><br><br><br>
-<button onclick="conferir()">Conferir</button>
+
+    <div id="respostaerrada" class="container" style="display: none;">
+        <img src="./assets/erradafinal.png" alt=""><br>
+        <h1>RESPOSTA ERRADA</h1>
     </div>
-    
+
 </body>
+
 </html>
 <script>
 
-    function conferir(){
-        var alternativas = alternativa.value;
+    // function conferir() {
+    //     var alternativas = alternativa.value;
 
-        if(alternativas == 'A'){
-           window.location.href = 'pergunta2.html'
+    //     if (alternativas == 'A') {
+    //         window.location.href = 'pergunta2.html';
+    //     } else {
+    //         document.querySelector('#pergunta').style.display = 'none';
+    //         document.querySelector('#resposta').style.display = 'block';
+    //         // window.location.href = 'errada.html';
+    //         setTimeout(() => {
+    //             window.location.href = 'pergunta2.html';
+    //         }, 5000);
+    //     }
+
+    //     cadastrarResposta()
+
+    // }
+
+    function cadastrarResposta(numeroPergunta, resposta) {
+
+        var numeroPergunta = 1;
+        var resposta = alternativa.value;
+
+        if (resposta == 'A'){
+            resposta = 1
         } else {
-            window.location.href = 'errada.html'
+            resposta = 0
         }
-    }
+
+        fetch("/usuario/cadastrarResposta", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                numeroPerguntaServer: numeroPergunta,
+                respostaServer: resposta
+
+            }),
+        })
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
+
+
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+
+            });
+
+      
+
+
+
+            // return false;
+
+            window.location.href = 'pergunta2.html';
+
+
+        //     if (alternativas == 'A') {
+        //     window.location.href = 'pergunta2.html';
+        // } else {
+        //     document.querySelector('#pergunta').style.display = 'none';
+        //     document.querySelector('#respostaerrada').style.display = 'block';
+        //     // window.location.href = 'errada.html';
+        //     setTimeout(() => {
+        //         window.location.href = 'pergunta2.html';
+        //     }, 5000);
+        // }
+
+            // div_mensagem.innerHTML = mensagem
+
+        }
+
 
 </script>

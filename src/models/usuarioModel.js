@@ -23,7 +23,19 @@ function cadastrar(nome, sobrenome, ddd, celular, email, senha, confirmar_senha,
     return database.executar(instrucaoSql);
 }
 
+function cadastrarResposta(numeroPergunta, resposta){
+    var instrucaoSql = 
+    `
+    INSERT INTO quiz (pergunta, resposta) VALUES ('${numeroPergunta}', '${resposta}');
+`;
+console.log("Executando a instrução SQL: \n" + instrucaoSql);
+return database.executar(instrucaoSql);
+}
+
+
+
 module.exports = {
     autenticar,
-    cadastrar
+    cadastrar,
+    cadastrarResposta
 };

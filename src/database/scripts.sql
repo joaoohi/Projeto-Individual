@@ -13,3 +13,11 @@ confirmar_senha varchar(45),
 instrumento char(8)
 );
 
+create table quiz (
+pergunta int,
+resposta char(1),
+fkUsuario int,
+foreign key(fkUsuario) references usuario(idCadastro)
+);
+
+

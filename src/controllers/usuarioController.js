@@ -52,6 +52,35 @@ function autenticar(req, res) {
 
 }
 
+
+
+function cadastrarResposta(req, res){
+
+    var pergunta = req.body.numeroPerguntaServer;
+    var resposta = req.body.respostaServer;
+    
+    usuarioModel.cadastrarResposta(pergunta, resposta)
+    .then(
+        function (resultado) {
+            res.json(resultado);
+            res.json({
+                numeroPergunta: resultado[0].numeroPergunta,
+                resposta: resultado[0].resposta
+
+            });
+        }
+    ).catch(
+        function (erro) {
+            console.log(erro);
+           
+            res.status(500).json(erro.sqlMessage);
+        }
+    );
+}
+
+
+
+
 function cadastrar(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     var nome = req.body.nomeServer;
@@ -103,5 +132,6 @@ function cadastrar(req, res) {
 
 module.exports = {
     autenticar,
-    cadastrar
+    cadastrar,
+    cadastrarResposta
 }
