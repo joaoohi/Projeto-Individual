@@ -194,8 +194,8 @@
             && contador_parenteses1 == 0 && contador_parenteses2 == 0 && tamanho_senha >= 8 && (senha_arroba || senha_asterisco || senha_comercial || senha_exclamacao ||
                 senha_hashtag || senha_porcentagem || senha_sifrao) && senha == confirmar_senha && (senha_zero || senha_um || senha_dois || senha_tres || senha_quatro
                     || senha_cinco || senha_seis || senha_sete || senha_oito || senha_nove)) {
-           
-                        fetch("/usuario/cadastrar", {
+
+            fetch("/usuario/cadastrar", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -214,28 +214,18 @@
                 }),
             })
                 .then(function (resposta) {
-                    console.log("resposta: ", resposta);
-
                     if (resposta.ok) {
-                        
-
-                        
-                            window.location.href = "index.html";
-                       
-
-
-
+                        window.location.href = "index.html";
                     } else {
                         throw "Houve um erro ao tentar realizar o cadastro!";
                     }
                 })
                 .catch(function (resposta) {
                     console.log(`#ERRO: ${resposta}`);
-
                 });
 
             return false;
-            
+
 
         } else {
             mensagem += `<h1>Cadastro Inválido</h1>

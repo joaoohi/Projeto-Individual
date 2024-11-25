@@ -1,6 +1,7 @@
 
 body {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
@@ -14,9 +15,12 @@ body {
 }
 
 .logo{
-    position: relative;
+    /* position: relative; */
+    position: absolute;
+    left: 0;
+    top: 0;
     height: 110px;
-    margin-bottom: 600px;
+    /* margin-bottom: 600px; */
     right: 0px;
 }
 
@@ -27,17 +31,18 @@ body {
     padding: 20px; 
     border-radius: 8px; 
     max-width: 600px; 
-    margin: 20px auto; 
+    /* margin: 20px auto;  */
     text-align: center; 
     font-family: 'Arial', sans-serif; 
-    margin-left: 367px;
-    margin-bottom: 650px;
+    /* margin-left: 367px; */
+    /* margin-bottom: 650px; */
+    margin-bottom: 50px;
   }
 
 
 
 .container {
-    position: absolute;
+    /* position: absolute; */
     height: 400px;
     width: 90%; 
     max-width: 400px;
@@ -49,7 +54,7 @@ body {
     backdrop-filter: blur(5px); 
     text-align: center;
     transition: box-shadow 0.3s ease;
-    margin-left: 50px;
+    /* margin-left: 50px; */
 }
 
 .container:hover {

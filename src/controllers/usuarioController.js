@@ -22,7 +22,7 @@ function autenticar(req, res) {
 
                         res.json({
                             email: resultadoAutenticar[0].email,
-                            senha: resultadoAutenticar[0].email
+                            idCadastro: resultadoAutenticar[0].idCadastro
 
                         });
                         // teoriamusical.buscar(resultadoAutenticar[0].idUsuario)
@@ -58,15 +58,38 @@ function cadastrarResposta(req, res){
 
     var pergunta = req.body.numeroPerguntaServer;
     var resposta = req.body.respostaServer;
-    
-    usuarioModel.cadastrarResposta(pergunta, resposta)
+    var idcadastro = req.body.idcadastroServer;
+    console.log(idcadastro)
+    usuarioModel.cadastrarResposta(pergunta, resposta, idcadastro)
     .then(
         function (resultado) {
             res.json(resultado);
             res.json({
                 numeroPergunta: resultado[0].numeroPergunta,
-                resposta: resultado[0].resposta
+                resposta: resultado[0].resposta,
+                idcadastro: resultado[0].idcadastro
+            });
+        }
+    ).catch(
+        function (erro) {
+            console.log(erro);
+           
+            res.status(500).json(erro.sqlMessage);
+        }
+    );
+}
 
+function quiz(req, res){
+
+    var idcadastro = req.body.idcadastroServer;
+
+    usuarioModel.quiz(idcadastro)
+
+    .then(
+        function (resultado) {
+            res.json(resultado);
+            res.json({
+                idcadastro: resultado[0].idcadastro
             });
         }
     ).catch(
@@ -133,5 +156,6 @@ function cadastrar(req, res) {
 module.exports = {
     autenticar,
     cadastrar,
-    cadastrarResposta
+    cadastrarResposta,
+    quiz
 }

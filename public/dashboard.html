@@ -1,11 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
-    
+
+<body onload="quiz()">
+    <div>
+        <canvas id="myChart"></canvas>
+    </div>
+
 </body>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </html>
+
+<script>
+    const ctx = document.getElementById('myChart');
+    
+
+    function quiz(idcadastro) {
+
+        var idcadastro = sessionStorage.ID_USUARIO;
+
+        fetch("/usuario/quiz", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                idcadastroServer: idcadastro
+
+            }),
+        })
+            .then(function (resposta) {
+                if (resposta.ok) {
+
+                    var qtd_respostacerta = 0;
+                    var qtd_respostaerrada = 0;
+
+                    resposta.json().then(json => {
+                    
+                        qtd_respostacerta = json[0].qtd_certa;
+                        qtd_respostaerrada =json[0].qtd_errada;
+
+                    var data = [
+                        { count: qtd_respostacerta },
+                        { count: qtd_respostaerrada}
+                    ]
+                    console.log(data);
+
+                    new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: ['Respostas Certas', 'Respostas Erradas'],
+                            datasets: [{
+                                label: 'Avaliação do Quiz',
+                                data: data.map(row => row.count),
+                                borderWidth: 1,
+
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                y: {
+                                    beginAtZero: true
+                                }
+                            }
+                        }
+                    });
+                });
+
+                } else {
+                    throw "Houve um erro ao tentar realizar o cadastro!";
+                }
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
+
+        return false;
+
+
+    }
+
+
+
+
+
+
+
+</script>

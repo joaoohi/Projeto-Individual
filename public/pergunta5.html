@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./css/pergunta1.css">
 </head>
+
 <body>
     <header>
         <nav>
@@ -14,7 +16,7 @@
             <a href="cursos.html">CURSOS</a>
             <a href="">DASHBOARD</a>
             <a href="">FERRAMENTAS</a>
-            <a href="index.html">SAIR</a>
+            <a href="#" onclick="logout()">SAIR</a>
         </nav>
     </header>
     <div class="container">
@@ -22,64 +24,72 @@
         <br><br>
         <h2>O que são Escalas? </h2>
         <div>
-        <div class="alternativa_a"><b>A)</b >Conjunto de notas com um intervalo específico entre elas</div>
-        <div class="alternativa_b"><b>B)</b>Conjunto de acordes que podem ser tocados na música</div>
-        <div class="alternativa_c"><b>C)</b>Notas sem acidentes (# ou b) que podem ser tocadas na tonalidade</div>
-        <div class="alternativa_d"><b>D)</b>Conjunto de notas em sequência cromática</div>
-        <div class="alternativa_c"><b>E)</b>Notas de acordes em sequência cromática</div>
+            <div class="alternativa_a"><b>A)</b>Conjunto de notas com um intervalo específico entre elas</div>
+            <div class="alternativa_b"><b>B)</b>Conjunto de acordes que podem ser tocados na música</div>
+            <div class="alternativa_c"><b>C)</b>Notas sem acidentes (# ou b) que podem ser tocadas na tonalidade</div>
+            <div class="alternativa_d"><b>D)</b>Conjunto de notas em sequência cromática</div>
+            <div class="alternativa_c"><b>E)</b>Notas de acordes em sequência cromática</div>
+        </div>
+        <h2> Qual é a alternativa CORRETA?</h2>
+        <select id="alternativa">
+            <option>ESCOLHA</option>
+            <option>A</option>
+            <option>B</option>
+            <option>C</option>
+            <option>D</option>
+            <option>E</option>
+        </select><br><br><br><br>
+        <button onclick="cadastrarResposta()">Conferir</button>
     </div>
-   <h2> Qual é a alternativa CORRETA?</h2>
-   <select id="alternativa">
-    <option>ESCOLHA</option>
-    <option>A</option>
-    <option>B</option>
-    <option>C</option>
-    <option>D</option>
-    <option>E</option>
-</select><br><br><br><br>
-<button onclick="cadastrarResposta()">Conferir</button>
-    </div>
-    
+
 </body>
+
 </html>
 <script>
 
-function cadastrarResposta(numeroPergunta, resposta) {
+    function cadastrarResposta(numeroPergunta, resposta, fkUsuario) {
 
-var numeroPergunta = 5;
-var resposta = alternativa.value;
 
-if (resposta == 'A'){
+        var numeroPergunta = 5;
+        var resposta = alternativa.value;
+        var idcadastro = sessionStorage.ID_USUARIO;
+
+        if (resposta == 'A') {
             resposta = 1
         } else {
             resposta = 0
         }
 
-fetch("/usuario/cadastrarResposta", {
-    method: "POST",
-    headers: {
-        "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-        // crie um atributo que recebe o valor recuperado aqui
-        // Agora vá para o arquivo routes/usuario.js
-        numeroPerguntaServer: numeroPergunta,
-        respostaServer: resposta
+        fetch("/usuario/cadastrarResposta", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                numeroPerguntaServer: numeroPergunta,
+                respostaServer: resposta,
+                idcadastroServer: idcadastro
 
-    }),
-})
-    .then(function (resposta) {
-        console.log("resposta: ", resposta);
+            }),
+        })
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
 
 
-    })
-    .catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
 
-    });
+            });
 
-window.location.href = 'pergunta6.html';
+        window.location.href = 'pergunta6.html';
 
-}
+    }
+
+    function logout() {
+        limparSessao();
+    }
 
 </script>

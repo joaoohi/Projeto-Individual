@@ -16,7 +16,7 @@
             <a href="../public/cursos.html">CURSOS</a>
             <a href="">DASHBOARD</a>
             <a href="">FERRAMENTAS</a>
-            <a href="index.html">SAIR</a>
+            <a href="#" onclick="logout()">SAIR</a>
         </nav>
     </header><br><br> <br>
     <h1>O que é harmonia musical?</h1>
@@ -118,3 +118,8 @@
 
 
 </html>
+<script>
+    function logout() {
+        limparSessao();
+    }
+</script>

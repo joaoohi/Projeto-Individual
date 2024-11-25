@@ -16,7 +16,7 @@
             <a href="cursos.html">CURSOS</a>
             <a href="">DASHBOARD</a>
             <a href="">FERRAMENTAS</a>
-            <a href="index.html">SAIR</a>
+            <a href="#" onclick="logout()">SAIR</a>
         </nav>
     </header>
     <div id="pergunta" class="container" style="display: block;">
@@ -70,11 +70,12 @@
 
     // }
 
-    function cadastrarResposta(numeroPergunta, resposta) {
+    function cadastrarResposta(numeroPergunta, resposta, fkUsuario) {
 
         var numeroPergunta = 1;
         var resposta = alternativa.value;
-
+        var idcadastro = sessionStorage.ID_USUARIO;
+        
         if (resposta == 'A'){
             resposta = 1
         } else {
@@ -90,8 +91,8 @@
                 // crie um atributo que recebe o valor recuperado aqui
                 // Agora vá para o arquivo routes/usuario.js
                 numeroPerguntaServer: numeroPergunta,
-                respostaServer: resposta
-
+                respostaServer: resposta,
+                idcadastroServer: idcadastro
             }),
         })
             .then(function (resposta) {
@@ -127,6 +128,10 @@
             // div_mensagem.innerHTML = mensagem
 
         }
+
+        function logout() {
+        limparSessao();
+    }
 
 
 </script>

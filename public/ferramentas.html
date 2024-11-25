@@ -14,7 +14,7 @@
             <a href="cursos.html">CURSOS</a>
             <a href="">DASHBOARD</a>
             <a href="ferramentas.html">FERRAMENTAS</a>
-            <a href="index.html">SAIR</a>
+            <a href="#" onclick="logout()">SAIR</a>
         </nav>
     </header>
     <div class="container">
@@ -31,4 +31,7 @@
     window.location.href = 'dicionario.html'
   }
 
+    function logout() {
+        limparSessao();
+    }
 </script>

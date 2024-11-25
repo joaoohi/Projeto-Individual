@@ -15,7 +15,7 @@
             <a href="./cursos.html">CURSOS</a>
             <a href="">DASHBOARD</a>
             <a href="">FERRAMENTAS</a>
-            <a href="index.html">SAIR</a>
+            <a href="#" onclick="logout()">SAIR</a>
         </nav>
     </header>
 
@@ -35,7 +35,7 @@
     }
 
     function partituras(){
-        window.location.href = './partiturascursos.html'
+        window.location.href = './partiturasCursos.html'
     }
 
     function campo(){
@@ -44,5 +44,9 @@
 
     function escalas(){
         window.location.href = './escalas.html'
+    }
+
+    function logout() {
+        limparSessao();
     }
 </script>
