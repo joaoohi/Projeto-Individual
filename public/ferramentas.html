@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="css/ferramentas.css">
+    <link rel="stylesheet" href="./css/ferramentas.css">
 </head>
 <body>
     <header>
@@ -12,7 +12,7 @@
             <a href="home.html">HOME</a>
             <a href="pergunta1.html">QUIZ</a>
             <a href="cursos.html">CURSOS</a>
-            <a href="">DASHBOARD</a>
+            <a href="dashboard.html">DASHBOARD</a>
             <a href="ferramentas.html">FERRAMENTAS</a>
             <a href="#" onclick="logout()">SAIR</a>
         </nav>
@@ -20,16 +20,14 @@
     <div class="container">
         <h1>Qual ferramenta você gostaria de usar agora?</h1>
        <button onclick="window.location.href='https://www.cifraclub.com.br/afinador/'">Afinador</button>
-       <button onclick="dicionario()">Dicionario de Acordes</button>
+      
        
     </div>
 </body>
 </html>
 <script>
 
-  function dicionario(){
-    window.location.href = 'dicionario.html'
-  }
+ 
 
     function logout() {
         limparSessao();

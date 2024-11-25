@@ -5,11 +5,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./css/dashboard.css">
 </head>
+<body>
+    <header>
+        <nav>
+            <a href="home.html">HOME</a>
+            <a href="pergunta1.html">QUIZ</a>
+            <a href="cursos.html">CURSOS</a>
+            <a href="dashboard.html">DASHBOARD</a>
+            <a href="ferramentas.html">FERRAMENTAS</a>
+            <a href="#" onclick="logout()">SAIR</a>
+        </nav>
+    </header>
+</body><br><br><br><br><br><br><br><br><br>
 
 <body onload="quiz()">
     <div>
-        <canvas id="myChart"></canvas>
+        <canvas id="myChart" width="400" height="100"></canvas>
     </div>
 
 </body>
@@ -19,7 +32,7 @@
 
 <script>
     const ctx = document.getElementById('myChart');
-    
+
 
     function quiz(idcadastro) {
 
@@ -44,36 +57,49 @@
                     var qtd_respostaerrada = 0;
 
                     resposta.json().then(json => {
-                    
+
                         qtd_respostacerta = json[0].qtd_certa;
-                        qtd_respostaerrada =json[0].qtd_errada;
+                        qtd_respostaerrada = json[0].qtd_errada;
 
-                    var data = [
-                        { count: qtd_respostacerta },
-                        { count: qtd_respostaerrada}
-                    ]
-                    console.log(data);
+                        var data = [
+                            { count: qtd_respostacerta },
+                            { count: qtd_respostaerrada }
+                        ]
+                        console.log(data);
 
-                    new Chart(ctx, {
-                        type: 'bar',
-                        data: {
-                            labels: ['Respostas Certas', 'Respostas Erradas'],
-                            datasets: [{
-                                label: 'Avaliação do Quiz',
-                                data: data.map(row => row.count),
-                                borderWidth: 1,
+                        new Chart(ctx, {
+                            type: 'bar',
+                            data: {
+                                labels: ['Respostas Certas', 'Respostas Erradas'],
+                                datasets: [{
+                                    label: 'Avaliação do Quiz',
+                                    data: data.map(row => row.count),
+                                    borderWidth: 1,
+                                    barThickness: 200,
+                                    backgroundColor: [
+                                        'rgba(75, 192, 192, 0.8)', // Cor da barra "Respostas Certas"
+                                        'rgba(255, 99, 132, 0.8)'  // Cor da barra "Respostas Erradas"
+                                    ],
+                                    borderColor: [
+                                        'rgba(75, 192, 192, 1)',   // Cor da borda da barra "Respostas Certas"
+                                        'rgba(255, 99, 132, 1)'   // Cor da borda da barra "Respostas Erradas"
+                                    ]
 
-                            }]
-                        },
-                        options: {
-                            scales: {
-                                y: {
-                                    beginAtZero: true
+                                }]
+                            },
+                            options: {
+                                scales: {
+                                    x: {
+                                        barPercentage: 0.2, // Ajusta a largura de cada barra (valor entre 0 e 1)
+                                        categoryPercentage: 0.8, // Ajusta a largura relativa entre as categorias (valor entre 0 e 1)
+                                    },
+                                    y: {
+                                        beginAtZero: true
+                                    }
                                 }
                             }
-                        }
+                        });
                     });
-                });
 
                 } else {
                     throw "Houve um erro ao tentar realizar o cadastro!";
